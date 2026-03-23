@@ -6,13 +6,13 @@ import { useCountUp } from '@/hooks/useCountUp'
 const STATS = [
   { value: 19.5, suffix: '%', label: 'instagram engagement', decimals: 1 },
   { value: 4.6, suffix: '%', label: 'tiktok engagement', decimals: 1 },
-  { value: 78, suffix: '%', label: 'audience aged 25–44', decimals: 0 },
+  { value: 76, suffix: '%', label: 'audience aged 25–44', decimals: 0 },
   { value: 64, suffix: '%', label: 'US + Canada audience', decimals: 0 },
 ]
 
 const AUDIENCE = [
-  { label: 'Top locations', value: 'US · Canada · UK · Australia' },
-  { label: 'Primary age', value: '35–44' },
+  { label: 'Top locations', value: 'US 32.9% · Canada 31.2% · UK 8.2% · AU 4.3%' },
+  { label: 'Primary age', value: '35–44 (40%)' },
   { label: 'Platforms', value: 'Instagram · TikTok' },
   { label: 'Active partners', value: 'KohlKrew · TinyPaws' },
 ]
