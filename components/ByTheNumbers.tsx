@@ -5,7 +5,7 @@ import { useCountUp } from '@/hooks/useCountUp'
 
 const STATS = [
   { value: 19.5, suffix: '%', label: 'instagram engagement', decimals: 1 },
-  { value: 4.6, suffix: '%', label: 'tiktok engagement', decimals: 1 },
+  { value: 5, suffix: '%', label: 'tiktok engagement', decimals: 0 },
   { value: 76, suffix: '%', label: 'audience aged 25–44', decimals: 0 },
   { value: 64, suffix: '%', label: 'US + Canada audience', decimals: 0 },
 ]
