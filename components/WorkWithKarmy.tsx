@@ -29,11 +29,12 @@ const OFFERS = [
   },
 ]
 
-export default function WorkWithKarmy() {
+export default function WorkWithKarmy({ id }: { id?: string }) {
   const sectionRef = useReveal()
 
   return (
     <section
+      id={id}
       ref={sectionRef as React.RefObject<HTMLElement>}
       className="bg-sand py-20 md:py-32 border-t border-stone/20"
     >

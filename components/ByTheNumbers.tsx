@@ -4,10 +4,17 @@ import { useEffect, useRef, useState } from 'react'
 import { useCountUp } from '@/hooks/useCountUp'
 
 const STATS = [
-  { value: 2.4, suffix: 'M', label: 'eyes on content', decimals: 1 },
-  { value: 8.3, suffix: '%', label: 'avg engagement rate', decimals: 1 },
-  { value: 34, suffix: '+', label: 'brands on the roster', decimals: 0 },
-  { value: 200, suffix: '+', label: 'clips delivered', decimals: 0 },
+  { value: 19.5, suffix: '%', label: 'instagram engagement', decimals: 1 },
+  { value: 4.6, suffix: '%', label: 'tiktok engagement', decimals: 1 },
+  { value: 78, suffix: '%', label: 'audience aged 25–44', decimals: 0 },
+  { value: 64, suffix: '%', label: 'US + Canada audience', decimals: 0 },
+]
+
+const AUDIENCE = [
+  { label: 'Top locations', value: 'US · Canada · UK · Australia' },
+  { label: 'Primary age', value: '35–44' },
+  { label: 'Platforms', value: 'Instagram · TikTok' },
+  { label: 'Active partners', value: 'KohlKrew · TinyPaws' },
 ]
 
 function StatItem({
@@ -25,18 +32,17 @@ function StatItem({
   isActive: boolean
   delay: number
 }) {
-  // For decimal values, scale up so countup works with integers
   const scale = decimals > 0 ? Math.pow(10, decimals) : 1
   const rawCount = useCountUp(Math.round(value * scale), 1400, isActive)
   const display = decimals > 0 ? (rawCount / scale).toFixed(decimals) : rawCount.toString()
 
   return (
     <div
-      className="opacity-0 translate-y-5 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
       style={{
         transitionDelay: isActive ? `${delay}ms` : '0ms',
         opacity: isActive ? 1 : 0,
         transform: isActive ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 400ms cubic-bezier(0.16,1,0.3,1), transform 400ms cubic-bezier(0.16,1,0.3,1)',
       }}
     >
       <div className="font-display text-stat text-sand leading-none tabular-nums">
@@ -76,16 +82,17 @@ export default function ByTheNumbers() {
     <section ref={sectionRef} className="bg-navy py-20 md:py-32">
       <div className="max-w-narrow mx-auto px-5 md:px-10">
         <p
-          className="font-display text-display-sm text-stone/40 mb-16 md:mb-20 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className="font-display text-display-sm text-stone/40 mb-16 md:mb-20"
           style={{
             opacity: isActive ? 1 : 0,
             transform: isActive ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 400ms cubic-bezier(0.16,1,0.3,1), transform 400ms cubic-bezier(0.16,1,0.3,1)',
           }}
         >
           yeah, the numbers hit
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mb-16 md:mb-20">
           {STATS.map((stat, i) => (
             <StatItem
               key={stat.label}
@@ -93,6 +100,27 @@ export default function ByTheNumbers() {
               isActive={isActive}
               delay={i * 80}
             />
+          ))}
+        </div>
+
+        {/* Audience breakdown */}
+        <div
+          className="border-t border-stone/20 pt-10 grid grid-cols-2 md:grid-cols-4 gap-6"
+          style={{
+            opacity: isActive ? 1 : 0,
+            transform: isActive ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 400ms cubic-bezier(0.16,1,0.3,1) 400ms, transform 400ms cubic-bezier(0.16,1,0.3,1) 400ms',
+          }}
+        >
+          {AUDIENCE.map((item) => (
+            <div key={item.label}>
+              <p className="font-body text-[10px] text-stone/40 tracking-[0.18em] uppercase mb-1.5">
+                {item.label}
+              </p>
+              <p className="font-body text-sand text-sm">
+                {item.value}
+              </p>
+            </div>
           ))}
         </div>
       </div>

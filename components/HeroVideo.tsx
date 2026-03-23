@@ -34,13 +34,13 @@ export default function HeroVideo() {
         </p>
 
         <h1 className="font-display text-display-xl text-cream mb-3 leading-none">
-          COASTAL D1
+          WHATSUP DOGGOS,
           <br />
-          PAWTHLETE
+          IT&apos;S ME KARMY.
         </h1>
 
-        <p className="font-body text-cream/60 text-sm md:text-base tracking-wide mb-8">
-          coconut. frisbee. combine.
+        <p className="font-body text-coral text-sm md:text-base tracking-wide mb-8">
+          want to work together?
         </p>
 
         <a
